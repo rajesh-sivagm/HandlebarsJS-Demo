@@ -3,9 +3,9 @@ import { InputRequest } from "../model/input-request";
 
 export function transformRequest(
   inputRequest: InputRequest,
-  templateFile: string
+  config: Config
 ): string {
-  const requestTemplate = Handlebars.compile(templateFile ?? "");
+  const requestTemplate = Handlebars.compile(config.template ?? "");
   const transformedRequest = requestTemplate(inputRequest);
   console.log("Transformed request - ", transformedRequest);
 

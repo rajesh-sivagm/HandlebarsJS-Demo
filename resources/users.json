@@ -1,4 +1,6 @@
 {
     "url": "https://reqres.in/api/users",
-    "template": "{\"name\": \"{{ payload.name }}\",\"job\": \"{{ payload.job }}\"}"
+    "template": "{\"name\": \"{{ payload.name }}\",\"job\": \"{{ payload.job }}\"}",
+    "type": "application/json",
+    "method": "POST"
 }

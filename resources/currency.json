@@ -1,0 +1,6 @@
+{
+    "url": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+    "template": "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><CountryCurrency xmlns=\"http://www.oorsprong.org/websamples.countryinfo\"><sCountryISOCode>{{ payload.countryName }}</sCountryISOCode></CountryCurrency></soap:Body></soap:Envelope>",
+    "type": "text/xml; charset=utf-8",
+    "method": "POST"
+}

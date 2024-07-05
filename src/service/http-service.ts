@@ -1,31 +1,29 @@
-import axios, {
-  AxiosInstance,
-  AxiosResponse,
-  RawAxiosRequestConfig,
-} from "axios";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
 
 export async function triggerHttpCall(
-  url: string,
+  config: Config,
   transformedRequest: string
 ): Promise<any> {
-  let httpClient: AxiosInstance = axios.create({
-    baseURL: url,
-  });
+  let httpClient: AxiosInstance = axios.create();
 
-  const headers: RawAxiosRequestConfig = {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  };
+  let response: AxiosResponse;
 
-  const response: AxiosResponse = await httpClient.post(
-    "",
-    transformedRequest,
-    headers
-  );
+  if (config.method === "POST") {
+    response = await httpClient.post(config.url, transformedRequest, {
+      headers: {
+        "Content-Type": config.type,
+        Accept: config.type,
+      },
+    });
+  } else {
+    response = await httpClient.get(config.url + transformedRequest, {
+      headers: {
+        "Content-Type": config.type,
+        Accept: config.type,
+      },
+    });
+  }
 
   console.log("Response from API - ", response);
-
   return response.data;
 }

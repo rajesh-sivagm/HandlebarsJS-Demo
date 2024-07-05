@@ -7,7 +7,7 @@ export interface InputRequest {
 export interface InputRequestPayload {
   name: string;
   job: string;
-
   email: string;
   password: string;
+  countryName: string;
 }
