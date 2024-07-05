@@ -1,0 +1,25 @@
+{
+  "name": "handlebars_js_tutorial",
+  "version": "1.0.0",
+  "description": "Sample Tutorial App to demonstrate Handlebars JS",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && nodemon dist/app.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "date-fns": "^3.6.0",
+    "handlebars": "^4.7.8",
+    "util": "^0.12.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.9",
+    "nodemon": "^3.1.4"
+  }
+}

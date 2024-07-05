@@ -1,0 +1,4 @@
+{
+    "url": "https://reqres.in/api/register",
+    "template": "{\"email\":\"{{ payload.email }}\",\"password\":\"{{ payload.password }}\"}"
+}
