@@ -7,7 +7,7 @@ export function transformRequest(
 ): string {
   const requestTemplate = Handlebars.compile(config.template ?? "");
   const transformedRequest = requestTemplate(inputRequest);
-  console.log("Transformed request - ", transformedRequest);
 
+  console.log("Transformed request - ", transformedRequest);
   return requestTemplate(inputRequest);
 }

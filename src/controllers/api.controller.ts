@@ -1,11 +1,11 @@
 import { Request, RequestHandler, Response } from "express";
-import { parseString } from "xml2js";
 import { InputRequest } from "../model/input-request";
 import { triggerHttpCall } from "../service/http-service";
 import { transformRequest } from "../service/transformation-service";
 import { getConfig } from "../util/config-util";
+import { parseXmlResponse } from "../util/xml-util";
 
-export const triggerSoapApi: RequestHandler = async (
+export const triggerApi: RequestHandler = async (
   req: Request,
   res: Response
 ) => {
@@ -19,7 +19,7 @@ export const triggerSoapApi: RequestHandler = async (
 
     res.status(200).json({
       Response: {
-        Payload: parseXmlResponse(response),
+        Payload: config.type === "SOAP" ? parseXmlResponse(response) : response,
       },
     });
   } catch (err) {
@@ -29,12 +29,3 @@ export const triggerSoapApi: RequestHandler = async (
     });
   }
 };
-
-function parseXmlResponse(xmldata: string) {
-  let jsonData = "";
-  parseString(xmldata, function (err, results) {
-    jsonData = results;
-  });
-
-  return jsonData;
-}

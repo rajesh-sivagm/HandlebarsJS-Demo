@@ -9,21 +9,27 @@ export async function triggerHttpCall(
   let response: AxiosResponse;
 
   if (config.method === "POST") {
-    response = await httpClient.post(config.url, transformedRequest, {
-      headers: {
-        "Content-Type": config.type,
-        Accept: config.type,
-      },
-    });
+    response = await httpClient.post(
+      config.url,
+      transformedRequest,
+      getHttpHeaders(config)
+    );
   } else {
-    response = await httpClient.get(config.url + transformedRequest, {
-      headers: {
-        "Content-Type": config.type,
-        Accept: config.type,
-      },
-    });
+    response = await httpClient.get(
+      config.url + transformedRequest,
+      getHttpHeaders(config)
+    );
   }
 
   console.log("Response from API - ", response);
   return response.data;
+}
+
+function getHttpHeaders(config: Config) {
+  return {
+    headers: {
+      "Content-Type": config.format,
+      Accept: config.format,
+    },
+  };
 }

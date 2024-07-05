@@ -1,6 +1,7 @@
 interface Config {
   url: string;
   template: string;
-  type: string;
+  format: string;
   method: string;
+  type: string;
 }
