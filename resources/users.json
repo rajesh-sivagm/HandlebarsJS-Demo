@@ -1,6 +1,7 @@
 {
     "url": "https://reqres.in/api/users",
-    "template": "{\"name\": \"{{ payload.name }}\",\"job\": \"{{ payload.job }}\"}",
+    "requestTemplate": "{\"name\": \"{{ payload.name }}\",\"job\": \"{{ payload.job }}\"}",
+    "responseTemplate": "{\"tr_name\": \"{{ name }}\",\"tr_job\": \"{{ job }}\",\"tr_createdAt\": \"{{ createdAt }}\",\"tr_id\": \"{{ id }}\"}",
     "format": "application/json",
     "method": "POST",
     "type": "REST"
